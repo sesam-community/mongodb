@@ -1,17 +1,30 @@
-========================
-python-datasink-template
-========================
+================
+mongodb-datasink
+================
 
-A python micro service template for receiving a JSON entity stream from a Sesam service instance. 
+A python micro service for receiving a JSON entity stream from a Sesam service
+instance and pushing them to MongoDB.
 
-::
+A docker image is provided here: <https://hub.docker.com/r/giskou/mongodb-sink/>
 
-  $ python3 service/datasink-service.py
-   * Running on http://0.0.0.0:5001/ (Press CTRL+C to quit)
-   * Restarting with stat
-   * Debugger is active!
-   * Debugger pin code: 260-787-156
+    docker run -it --rm \
+      --name=mongodb-sink \
+      --network=<network> \
+      -p 5001:5001 \
+      -e MONGODB_HOST=<host> \
+      -e MONGODB_USERNAME=<username> \
+      -e MONGODB_PASSWORD=<password> \
+      -e MONGODB_DATABASE=<northwind> \
+      giskou/mongodb-sink:dev
 
-The service listens on port 5001.
+_MONGODB_HOST_: the hostname of the mongodb instace the sink will connect to.
+(default: localhost)
 
-JSON entities can be posted to 'http://localhost:5001/receiver'.
+_MONGODB_PORT_: the port of the mongodb instace the sink will connect to.
+(default: 27017)
+
+_MONGODB_DATABASE_: the database to push data to
+
+_MONGODB_USERNAME_: the username of database user
+
+_MONGODB_PASSWORD_: the password of the database user

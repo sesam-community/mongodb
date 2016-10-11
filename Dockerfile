@@ -1,8 +1,9 @@
 FROM python:3-alpine
-MAINTAINER Graham Moore "graham.moore@sesam.io"
+MAINTAINER Ioannis Skoulis "ioannis.skoulis@sesam.io"
+EXPOSE 5000/tcp
+COPY ./service/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 COPY ./service /service
 WORKDIR /service
-RUN pip install -r requirements.txt
-EXPOSE 5000/tcp
 ENTRYPOINT ["python"]
 CMD ["datasink-service.py"]
