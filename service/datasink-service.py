@@ -18,10 +18,7 @@ mdb = mongodb.MongoDB(mongodb_host, mongodb_port, mongodb_database,
 
 @app.route('/<collection>', methods=['POST'])
 def receiver(collection):
-    entities = flask.request.get_json()
-    for entity in entities:
-        mdb.insert_or_update(collection, entity)
-
+    mdb.insert_or_update(collection, flask.request.get_json())
     return flask.Response("Thanks!", mimetype='text/plain')
 
 if __name__ == '__main__':
