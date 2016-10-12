@@ -23,5 +23,5 @@ class MongoDB(object):
                                                       item, upsert=True)
             operations.append(operation)
 
-        result = collection.bulk_write([operations])
+        result = collection.bulk_write(operations)
         assert result.acknowledged, 'Insertion failed'
