@@ -16,6 +16,6 @@ class MongoDB(object):
         collection = self._db[collection_name]
         item['_id'] = item.get('_id', bson.objectid.ObjectId())
         item['_last_modified'] = datetime.datetime.now()
-        result = collection.update_one({"_id": item['_id']}, {"$set": item},
-                                       upsert=True)
+        result = collection.replace_one({"_id": item['_id']}, item,
+                                        upsert=True)
         assert result.acknowledged, 'Insertion failed'
