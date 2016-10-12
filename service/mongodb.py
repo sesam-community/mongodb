@@ -13,7 +13,7 @@ class MongoDB(object):
         self._db = self._client[database]
         self._db.authenticate(username, password)
 
-    def create_o_update(self, collection_name, items):
+    def create_or_update(self, collection_name, items):
         collection = self._db[collection_name]
         operations = []
         for item in items:
