@@ -15,7 +15,7 @@ A docker image is provided here: <https://hub.docker.com/r/giskou/mongodb-sink/>
       -e MONGODB_USERNAME=<username> \
       -e MONGODB_PASSWORD=<password> \
       -e MONGODB_DATABASE=<northwind> \
-      giskou/mongodb-sink:dev
+      giskou/mongodb-sink
 
 _MONGODB_HOST_: the hostname of the mongodb instace the sink will connect to.
 (default: localhost)
