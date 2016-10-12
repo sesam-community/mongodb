@@ -15,7 +15,7 @@ class MongoDB(object):
     def insert_or_update(self, collection_name, item):
         collection = self._db[collection_name]
         item['_id'] = item.get('_id', bson.objectid.ObjectId())
-        item['_updated'] = datetime.datetime.now()
+        item['_last_modified'] = datetime.datetime.now()
         result = collection.update_one({"_id": item['_id']}, {"$set": item},
                                        upsert=True)
         assert result.acknowledged, 'Insertion failed'
