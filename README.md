@@ -3,6 +3,8 @@
 A python micro service for receiving a JSON entity stream from a Sesam service
 instance and pushing them to MongoDB.
 
+[![Build Status](https://travis-ci.org/sesam-community/mongodb-sink.svg?branch=master)](https://travis-ci.org/sesam-community/mongodb-sink)
+
 A docker image is provided here: <https://hub.docker.com/r/giskou/mongodb-sink/>
 
     docker run -it --rm \
