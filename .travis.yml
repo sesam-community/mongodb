@@ -14,5 +14,5 @@ after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker build -t sesamcommunity/mongodb-sink .;
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker push sesamcommunity/mongodb-sink:latest;
+    docker push sesamcommunity/mongodb:latest;
     fi
